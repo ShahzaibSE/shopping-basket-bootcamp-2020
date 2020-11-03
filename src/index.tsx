@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 // Service Worker.
 import swDev from "./swDev";
 // Mock Server.
-import mock_server from "./mirage-server/server";
+import mock__shopping_basket_server from "./mirage-server/server";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,4 +24,4 @@ reportWebVitals();
 // Register Service Worker.
 swDev();
 // Mock Mirage Server
-mock_server()
+mock__shopping_basket_server()

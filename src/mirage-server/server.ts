@@ -1,21 +1,14 @@
 import {createServer} from "miragejs";
+// Controllers.
+import {getAllItems} from "./countrollers/Items.controller";
 
-export default function(){
+const mock_shopping_basket_server = function(){
     createServer({
         routes(){
             this.namespace = "basket"
-            this.get("/items",()=>(
-                [
-                    {
-                        id:1,
-                        name: "Item 1"
-                    },
-                    {
-                        id:2,
-                        name: "Item 2"
-                    }
-                ]
-            ))
+            this.get("/items",getAllItems)
         }
     })
 }
+
+export default mock_shopping_basket_server;
