@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+// Component.
+import GridComponent from "./components/Grid/GridComponent";
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <GridComponent/>
     </div>
   );
 }

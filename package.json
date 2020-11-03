@@ -92,6 +92,7 @@
     "enzyme-adapter-react-16": "1.15.5",
     "enzyme-to-json": "3.5.0",
     "jest-fetch-mock": "3.0.3",
+    "miragejs": "^0.1.41",
     "ts-jest": "26.4.0"
   }
 }
