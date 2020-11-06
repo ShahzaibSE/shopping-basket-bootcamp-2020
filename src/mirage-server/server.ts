@@ -1,28 +1,28 @@
 import { ProductItem } from './../models/item.model.d';
 import { request } from "http";
 import {createServer, Model} from "miragejs";
-// Controllers.
-import {getAllItems} from "./countrollers/Items.controller";
 // Dummy Data.
 import {items} from "./shopping_basket_db";
 // Custom Model.
 
-export default function(){
+const make_mock_server = function(){
     createServer({
         models:{
-            reminder: Model
+            item:Model
         },
         seeds(server:any){
-            server.create("reminder", { text: "Walk the dog" })
-            server.create("reminder", { text: "Take out the trash" })
-            server.create("reminder", { text: "Work out" })
+           for(let i=0;i<items.length;i++){
+            server.create("item",items[i])
+           } 
         },
         routes() {
             this.get("/basket/items", (schema:any) => {
-              console.log("Getting all reminders")
-              console.log(schema.db.reminders)
-              return schema.db.reminders
+              console.log("Getting all Items")
+              console.log(schema.db.items)
+              return schema.db.items
             })
         },
     })
 }
+
+export default make_mock_server

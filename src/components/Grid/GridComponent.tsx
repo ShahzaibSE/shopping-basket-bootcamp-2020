@@ -9,8 +9,10 @@ const GridComponent = () => {
         }).finally(()=>{
             console.log("Successfully fetched sample data")
         })
-        console.log("Items")
-        console.log(items)
+        items.then(data => {
+            console.log("GridComponent - Items")
+            console.log(data)
+        })
     },[])
 
     return (
