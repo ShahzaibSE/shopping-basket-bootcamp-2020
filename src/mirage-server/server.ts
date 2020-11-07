@@ -22,6 +22,13 @@ const make_mock_server = function(){
               console.log(schema.db.items)
               return schema.db.items
             })
+            this.post("/basket/cart", (schema:any, request:any) => {
+                let number_of_items_in_cart = schema.db.carts.length
+                let newID = number_of_items_in_cart
+                let cart_item = JSON.parse(request.RequestBody)
+                cart_item.id = newID++
+                return schema.db.carts.create(cart_item)
+            })
         },
     })
 }
