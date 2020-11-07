@@ -31,12 +31,12 @@ jobs:
           node-version: 12
       # Install Yarn      
       - name: Install Yarn
-        uses: borales/actions-yarn@v2.0.0
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install # will run `yarn install` command      
       # Creating production build     
       - name: Build React App
-        uses: borales/actions-yarn@v2.0.0
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build # will run `yarn build` command
       # Install Firebase
