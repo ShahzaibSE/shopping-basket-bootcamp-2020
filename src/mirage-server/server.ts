@@ -8,7 +8,8 @@ import {items} from "./shopping_basket_db";
 const make_mock_server = function(){
     createServer({
         models:{
-            item:Model
+            item:Model,
+            cart:Model
         },
         seeds(server:any){
            for(let i=0;i<items.length;i++){
