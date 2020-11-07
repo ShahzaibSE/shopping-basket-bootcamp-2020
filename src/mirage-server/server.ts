@@ -18,9 +18,11 @@ const make_mock_server = function(){
         },
         routes() {
             this.get("/basket/items", (schema:any) => {
-              console.log("Getting all Items")
-              console.log(schema.db.items)
               return schema.db.items
+            })
+            // Routes for cart.
+            this.get("/basket/cart", (schema:any)=>{
+                return schema.db.carts
             })
             this.post("/basket/cart", (schema:any, request:any) => {
                 let number_of_items_in_cart = schema.db.carts.length
