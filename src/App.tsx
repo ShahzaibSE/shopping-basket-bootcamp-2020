@@ -5,9 +5,11 @@ import GridComponent from "./components/Grid/GridComponent";
 
 function App() {
   return (
-    <div>
-      <GridComponent/>
-    </div>
+   <React.Fragment> 
+      <div>
+        <GridComponent/>
+      </div>
+    </React.Fragment>
   );
 }
 
