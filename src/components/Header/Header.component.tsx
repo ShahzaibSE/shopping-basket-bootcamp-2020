@@ -14,8 +14,7 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import {Star} from "@material-ui/icons";
 // Assets.
 import { headerStyles, swipeableDrawerStyles, listStyles } from "./Header.styles";
 
@@ -58,21 +57,24 @@ const Header = () => {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+              <ListItem button>
+                <ListItemIcon><Star/></ListItemIcon>
+                <ListItemText primary="Male Fashion" />
               </ListItem>
-            ))}
           </List>
-          <Divider />
+          <Divider/>
           <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
+              <ListItem button>
+                <ListItemIcon><Star/></ListItemIcon>
+                <ListItemText primary="Female Fashion" />
               </ListItem>
-            ))}
+          </List>
+          <Divider/>
+          <List>
+              <ListItem button>
+                <ListItemIcon><Star/></ListItemIcon>
+                <ListItemText primary="Kids Fashion" />
+              </ListItem>
           </List>
         </div>
       );
