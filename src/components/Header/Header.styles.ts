@@ -46,6 +46,11 @@ export const swipeableDrawerStyles = makeStyles({
     },
     drawer_paper: {
         backgroundColor:indigo[500]
+    },
+    drawer_logo_container: {
+        width: 200,
+        height:200,
+        borderRadius:100
     }
 });
 

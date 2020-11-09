@@ -14,9 +14,10 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import {Star} from "@material-ui/icons";
+import {ShoppingBasket} from "@material-ui/icons";
 // Assets.
 import { headerStyles, swipeableDrawerStyles, listStyles } from "./Header.styles";
+import ShoppingBasketLogo from "../../static/shopping-basket-logo.png";
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -55,22 +56,28 @@ const Header = () => {
           onKeyDown={toggleDrawer(anchor, false)}
         >
           <List>
+            <ListItem>
+              <img className={swipeableDrawerClasses.drawer_logo_container} 
+                    src={ShoppingBasketLogo} alt="Shopping Basket Logo" />
+            </ListItem>
+          </List>
+          <List>
               <ListItem button>
-                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><ShoppingBasket/></ListItemIcon>
                 <ListItemText primary="Male Fashion" className={swipeableDrawerClasses.list_item} />
               </ListItem>
           </List>
           <Divider/>
           <List>
               <ListItem button>
-                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><ShoppingBasket/></ListItemIcon>
                 <ListItemText primary="Female Fashion" className={swipeableDrawerClasses.list_item}/>
               </ListItem>
           </List>
           <Divider/>
           <List>
               <ListItem button>
-                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><ShoppingBasket/></ListItemIcon>
                 <ListItemText primary="Kids Fashion" className={swipeableDrawerClasses.list_item}/>
               </ListItem>
           </List>
