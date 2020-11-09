@@ -56,22 +56,22 @@ const Header = () => {
         >
           <List>
               <ListItem button>
-                <ListItemIcon><Star/></ListItemIcon>
-                <ListItemText primary="Male Fashion" />
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemText primary="Male Fashion" className={swipeableDrawerClasses.list_item} />
               </ListItem>
           </List>
           <Divider/>
           <List>
               <ListItem button>
-                <ListItemIcon><Star/></ListItemIcon>
-                <ListItemText primary="Female Fashion" />
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemText primary="Female Fashion" className={swipeableDrawerClasses.list_item}/>
               </ListItem>
           </List>
           <Divider/>
           <List>
               <ListItem button>
-                <ListItemIcon><Star/></ListItemIcon>
-                <ListItemText primary="Kids Fashion" />
+                <ListItemIcon className={swipeableDrawerClasses.list_item}><Star/></ListItemIcon>
+                <ListItemText primary="Kids Fashion" className={swipeableDrawerClasses.list_item}/>
               </ListItem>
           </List>
         </div>

@@ -36,7 +36,10 @@ export const badgeStyles = makeStyles((theme: Theme) =>
 export const swipeableDrawerStyles = makeStyles({
     list: {
       width: 250,
-      backgroundColor:indigo[500]
+    //   backgroundColor:indigo[500]
+    },
+    list_item: {
+        color: "white"
     },
     fullList: {
       width: 'auto',
