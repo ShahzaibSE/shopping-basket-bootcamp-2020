@@ -1,4 +1,5 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {indigo} from "@material-ui/core/colors";
 
 export const headerStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -35,10 +36,14 @@ export const badgeStyles = makeStyles((theme: Theme) =>
 export const swipeableDrawerStyles = makeStyles({
     list: {
       width: 250,
+      backgroundColor:indigo[500]
     },
     fullList: {
       width: 'auto',
     },
+    drawer_paper: {
+        backgroundColor:indigo[500]
+    }
 });
 
 export const listStyles = makeStyles({

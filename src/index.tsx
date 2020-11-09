@@ -22,6 +22,6 @@ ReactDOM.render(
 reportWebVitals();
 //
 // Register Service Worker.
-swDev();
+// swDev();
 // Mock Mirage Server
 make_mock_server()

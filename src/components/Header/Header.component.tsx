@@ -49,9 +49,7 @@ const Header = () => {
 
     const list = (anchor: Anchor) => (
         <div
-          className={clsx(listClasses.list, {
-            [listClasses.fullList]: anchor === 'top' || anchor === 'bottom',
-          })}
+          className={listClasses.list}
           role="presentation"
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
@@ -102,12 +100,11 @@ const Header = () => {
             <div>
                 {/* {(['left'] as Anchor[]).map((anchor) => (
                     <React.Fragment key={anchor}> */}
-                    <SwipeableDrawer
+                    <SwipeableDrawer classes={{paper: swipeableDrawerClasses.drawer_paper}}
                         anchor={'left'}
                         open={state['left']}
                         onClose={toggleDrawer('left', false)}
-                        onOpen={toggleDrawer('left', true)}
-                    >
+                        onOpen={toggleDrawer('left', true)}>
                         {list('left')}
                     </SwipeableDrawer>
                     {/* </React.Fragment> */}
