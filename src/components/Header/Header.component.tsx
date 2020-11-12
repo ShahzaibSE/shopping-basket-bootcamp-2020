@@ -1,5 +1,5 @@
-import React from 'react'
-import clsx from "clsx"
+import React, {useState} from 'react';
+import clsx from "clsx";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -18,6 +18,10 @@ import {ShoppingBasket} from "@material-ui/icons";
 // Assets.
 import { headerStyles, swipeableDrawerStyles, listStyles } from "./Header.styles";
 import ShoppingBasketLogo from "../../static/shopping-basket-logo.png";
+// Components.
+import ProductList from "./../ProductList/ProductList.component";
+// API.
+import {getProducts} from "./../api/index.api";
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -26,7 +30,7 @@ const Header = () => {
     const classes = headerStyles();
     const swipeableDrawerClasses = swipeableDrawerStyles();
     const listClasses = listStyles()
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         top: false,
         left: false,
         bottom: false,

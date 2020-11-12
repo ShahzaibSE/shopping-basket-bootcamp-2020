@@ -1,11 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-const productsReducer = createSlice({
+const productsSlice = createSlice({
     name: "products",
-    initialState: {},
+    initialState: {
+        value:{id:1, name: "Shahzaib Noor"}
+    },
     reducers:{ 
         getProducts: (state:any, action:any) => (state)
     }
 })
 
-export default productsReducer;
+export default productsSlice;
