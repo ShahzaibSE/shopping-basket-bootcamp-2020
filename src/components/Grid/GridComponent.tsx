@@ -6,7 +6,7 @@ import Header from "../Header/Header.component";
 // Assets.
 import "./GridComponent.css"
 // Reducer
-import getProducts from "./../reducers/product.reducer";
+import {get_products} from "../slices/product.slice";
 
 const GridComponent = () => {
     const dispatch = useDispatch()
@@ -26,8 +26,8 @@ const GridComponent = () => {
 
     },[])
 
-    // console.log("GridComponent - default value")
-    // console.log(dispatch(getProducts()))
+    console.log("GridComponent - default value")
+    console.log(dispatch(get_products()))
 
     return (
         <div className="grid_container">
