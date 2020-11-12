@@ -6,9 +6,10 @@ import Header from "../Header/Header.component";
 // Assets.
 import "./GridComponent.css"
 // Reducer
-// import {getProducts} from "./../reducers/product.reducer";
+import getProducts from "./../reducers/product.reducer";
 
 const GridComponent = () => {
+    const dispatch = useDispatch()
     useEffect(()=>{
         let items = fetch("/basket/items").then(result => result)
             .then(data => data.json())
@@ -24,6 +25,9 @@ const GridComponent = () => {
         // Post a cart.
 
     },[])
+
+    // console.log("GridComponent - default value")
+    // console.log(dispatch(getProducts()))
 
     return (
         <div className="grid_container">

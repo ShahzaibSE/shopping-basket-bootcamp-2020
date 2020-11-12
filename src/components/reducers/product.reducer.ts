@@ -2,11 +2,12 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const productsSlice = createSlice({
     name: "products",
-    initialState: {
-        value:{id:1, name: "Shahzaib Noor"}
-    },
+    initialState: {},
     reducers:{ 
-        getProducts: (state:any, action:any) => (state)
+        getProducts: (state:any) => {
+            state.value = {id:1, name:"Shahzaib"}
+            return state 
+        }
     }
 })
 
