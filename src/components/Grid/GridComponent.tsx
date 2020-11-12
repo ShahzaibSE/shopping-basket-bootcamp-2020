@@ -1,9 +1,12 @@
 import React, {useEffect} from 'react';
+import {useDispatch} from "react-redux";
 import Grid from "@material-ui/core/Grid";
 // Components.
 import Header from "../Header/Header.component";
 // Assets.
 import "./GridComponent.css"
+// Reducer
+// import {getProducts} from "./../reducers/product.reducer";
 
 const GridComponent = () => {
     useEffect(()=>{
