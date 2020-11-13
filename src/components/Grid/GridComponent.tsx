@@ -33,7 +33,7 @@ const GridComponent = () => {
             console.log("Products - <GridComponent/>")
             console.log(data)
         })
-        dispatch(fetchProducts)
+        dispatch(fetchProducts())
         console.log("Products - GridComponent")
         console.log(products)
     },[dispatch])
@@ -43,13 +43,6 @@ const GridComponent = () => {
             <Grid container>
                 <Grid item sm={12} md={12} lg={12}>
                     <Header/>
-                </Grid>
-                <Grid item sm={12} md={12} lg={12}>
-                    {products.map((product:any) => (
-                        <div>
-                            <h1>{product.title}</h1>
-                        </div>
-                    ))}
                 </Grid>
             </Grid>
         </div>

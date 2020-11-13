@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, Dispatch} from "@reduxjs/toolkit";
 // API.
 import {getProducts} from "./../api/index.api";
 
@@ -8,7 +8,7 @@ export const productsSlice = createSlice({
         products: []
     },
     reducers:{ 
-        get_products: (state, action) => {
+        get_products: (state, action)=>{
           state.products = action.payload
         }
     }
@@ -20,14 +20,17 @@ export const {get_products} = productsSlice.actions
 export const productListSelector = (state:any) => state.products
 
 export function fetchProducts(){
-    return async (dispatch: any) => {
-        getProducts().then(result => {
-            const {data} = result
-            console.log("Products - <GridComponent/>")
-            console.log(data)
-            dispatch(get_products(data))
-        })
-    }
+    return async (dispatch:Dispatch) => {
+    
+        try {
+          const response = await fetch('/basket/items')
+          const data = await response.json()
+    
+          dispatch(get_products(data))
+        } catch (error) {
+          throw new Error("500 Internal server error.")
+        }
+      }
 }
 
 export default productsSlice.reducer;
