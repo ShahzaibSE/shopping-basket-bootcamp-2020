@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from "clsx";
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -22,6 +22,8 @@ import ShoppingBasketLogo from "../../static/shopping-basket-logo.png";
 import ProductList from "./../ProductList/ProductList.component";
 // API.
 import {getProducts} from "./../api/index.api";
+// Selector.
+import {productListSelector, fetchProducts} from "../slices/product.slice";
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
