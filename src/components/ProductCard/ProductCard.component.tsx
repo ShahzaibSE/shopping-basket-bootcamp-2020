@@ -17,6 +17,8 @@ type Product = {
 
 const ProductCardComponent:FC<Product> = ({product}: any) => {
     const classes = productCardStyles()
+    console.log("<ProductCardComponent/> - Product")
+    console.log(product)
     return (
         <div>
             <Card className={classes.root}>

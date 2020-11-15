@@ -6,12 +6,6 @@ import Header from "../Header/Header.component";
 import ProductListComponent from "../ProductList/ProductList.component";
 // Assets.
 import "./GridComponent.css";
-// API
-import {getProducts} from "../api/index.api";
-// Reducer
-import {get_products} from "../slices/product.slice";
-// Selector.
-import {productListSelector, fetchProducts} from "../slices/product.slice";
 
 const GridComponent = () => {
 

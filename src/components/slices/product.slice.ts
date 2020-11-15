@@ -23,12 +23,12 @@ export function fetchProducts(){
     return async (dispatch:Dispatch) => {
     
         try {
-          const response = await fetch('/basket/items')
-          const data = await response.json()
-    
-          dispatch(get_products(data))
+          getProducts().then(result => {
+            const {data} = result;
+            dispatch(get_products(data))
+          })
         } catch (error) {
-          throw new Error("500 Internal server error.")
+            throw new Error("500 Internal server error.")
         }
       }
 }
