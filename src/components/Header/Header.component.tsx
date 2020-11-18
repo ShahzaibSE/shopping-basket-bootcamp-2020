@@ -54,6 +54,16 @@ const Header = () => {
         setState({ ...state, [anchor]: open });
     };
 
+    const select_category = (category: string)=>{
+      if (category === "kids") {
+        console.log("Kids category selected")
+      }else if (category === "female") {
+        console.log("Female category selected")
+      }else {
+        console.log("Male category selected")
+      }
+    }
+
     const list = (anchor: Anchor) => (
         <div
           className={listClasses.list}
