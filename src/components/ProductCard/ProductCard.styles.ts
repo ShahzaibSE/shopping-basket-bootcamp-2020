@@ -11,7 +11,7 @@ export const productCardStyles = makeStyles({
     },
 
     media: {
-      height: 200,
+      height: 250,
     },
 
     action_container: {

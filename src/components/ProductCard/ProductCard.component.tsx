@@ -29,21 +29,21 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
                     title={product.title}
                     />
                     <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {product.title != null ? product.title : "" }
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary" component="p">
-                        {product.description != null ? product.description : "" }
-                    </Typography>
+                        <Typography gutterBottom variant="h6" component="h2" style={{fontWeight:"bold"}}>
+                            {product.title != null ? product.title : "" }
+                        </Typography>
+                        <Typography variant="subtitle1" color="textSecondary">
+                            ${product.price != null ? product.price : "" }
+                        </Typography>
+                        <Typography variant="body2" color="textSecondary" component="p">
+                            {product.description != null ? product.description : "" }
+                        </Typography>
                     </CardContent>
                 </CardActionArea>
                 <CardActions>
-                    <Button size="small" color="primary">
-                    Share
-                    </Button>
-                    <Button size="small" color="primary">
-                    Learn More
-                    </Button>
+                    {/* <Button size="small" color="primary">
+                     Add to Cart
+                    </Button> */}
                 </CardActions>
             </Card>
         </div>
