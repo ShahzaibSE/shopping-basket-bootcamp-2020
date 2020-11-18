@@ -26,7 +26,7 @@ const ProductListComponent = () => {
                 {products.length > 0 ? 
                     products.map((product:any)=>(
                         <Grid item sm={12} md={4} lg={4}>
-                            <ProductCardComponent product={product} />
+                            <ProductCardComponent key={product.id} product={product} />
                         </Grid>
                     )) : ''}
             </Grid>

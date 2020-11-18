@@ -11,3 +11,8 @@ export const cartSlice = createSlice({
        } 
     }
 })
+
+// Selector.
+export const cartItemsSelector = (state:any) => (state.cart_items)
+
+// Thunk Middleware.
