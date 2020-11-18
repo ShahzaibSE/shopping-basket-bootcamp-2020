@@ -5,7 +5,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from '@material-ui/core/Typography';
+import clsx from "clsx";
 // Assets.
 import {productCardStyles} from "./ProductCard.styles";
 // Models.
@@ -24,7 +26,7 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
             <Card className={classes.root}>
                 <CardActionArea>
                     <CardMedia
-                    className={classes.media}
+                    className={clsx([classes.media, classes.image])}
                     image={product.imageUrl != null ? product.imageUrl : ""}
                     title={product.title}
                     />
@@ -32,7 +34,7 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
                         <Typography gutterBottom variant="h6" component="h2" style={{fontWeight:"bold"}}>
                             {product.title != null ? product.title : "" }
                         </Typography>
-                        <Typography variant="subtitle1" color="textSecondary">
+                        <Typography variant="subtitle1" color="textSecondary" style={{fontWeight:"bold"}}>
                             ${product.price != null ? product.price : "" }
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">

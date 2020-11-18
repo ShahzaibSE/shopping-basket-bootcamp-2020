@@ -20,6 +20,15 @@ const ProductListComponent = () => {
         console.log(products)
     },[])
 
+    let get_filtered_products = (category: string, arr: Array<any>) => {
+        let temp_arr = arr.filter((product)=>(product.category === category))
+        return temp_arr
+    }
+
+    let filtered_products = get_filtered_products("male", products)
+    console.log("Filtered products")
+    console.log(filtered_products)
+
     return (
         <div>
             <Grid container justify="center" alignItems="center" alignContent="center">
