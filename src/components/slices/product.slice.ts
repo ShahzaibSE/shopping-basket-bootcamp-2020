@@ -24,7 +24,7 @@ export const {get_products_success, get_products_error} = productsSlice.actions
 // Slice/Selector functions
 export const productListSelector = (state:any) => state.products
 
-export function fetchProducts(){
+export function fetchProducts(category: string){
     return async (dispatch:Dispatch) => {
         try {
           getProducts().then(result => {
