@@ -2,7 +2,7 @@ import React, {useEffect, useState, FC} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 // Material Imports.
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import {AnimationWrapper} from "react-hover-animation"
 // Assets.
 import "./ProductList.css";
 // Component.
@@ -28,8 +28,6 @@ const ProductListComponent: FC<ProductListType> = ({category}:any) => {
     }
 
     let filtered_products = get_filtered_products(category, products)
-    console.log("Filtered products")
-    console.log(filtered_products)
 
     return (
         <div>
@@ -37,7 +35,12 @@ const ProductListComponent: FC<ProductListType> = ({category}:any) => {
                 {filtered_products.length > 0 ? 
                     filtered_products.map((product:any)=>(
                         <Grid item sm={12} md={4} lg={4}>
-                            <ProductCardComponent key={product.id} product={product} />
+                            <AnimationWrapper config={{
+                                                    transform:{initial:'scale(1)',onHover:'scale(1.1)'},
+                                                    opacity: {initial:'1',onHover:'1'}
+                                                }}>  
+                                <ProductCardComponent key={product.id} product={product} />
+                            </AnimationWrapper>
                         </Grid>
                     )) : ''}
             </Grid>
