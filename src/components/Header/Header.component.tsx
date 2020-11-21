@@ -23,7 +23,7 @@ import ProductListComponent from "./../ProductList/ProductList.component";
 // API.
 import {getProducts} from "./../api/index.api";
 // Selector.
-import {productListSelector, fetchProducts} from "../slices/product.slice";
+import {cartItemsSelector} from "../slices/cart.slice";
 import { useSelector } from 'react-redux';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
@@ -40,6 +40,7 @@ const Header: FC<any> = () => {
         right: false,
     });
     const [categoryState, setCategoryState] = useState('male')
+    let {cart_items} = useSelector(cartItemsSelector)
 
     const toggleDrawer = (anchor: Anchor, open: boolean) => (
         event: React.KeyboardEvent | React.MouseEvent,
@@ -123,7 +124,7 @@ const Header: FC<any> = () => {
                               <strong style={{fontWeight:"bolder"}}>ｃｏｓｍｏｓ Ｓｔｏｒｅ</strong>
                           </Typography>
                           <IconButton>
-                              <Badge color="secondary" overlap="circle" badgeContent="2">
+                              <Badge color="secondary" overlap="circle" badgeContent={cart_items.length}>
                                   <ShoppingCartRounded style={{color:"white", fontSize:30}}/>
                               </Badge>
                           </IconButton>
