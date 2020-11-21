@@ -24,6 +24,7 @@ import ProductListComponent from "./../ProductList/ProductList.component";
 import {getProducts} from "./../api/index.api";
 // Selector.
 import {productListSelector, fetchProducts} from "../slices/product.slice";
+import { useSelector } from 'react-redux';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 

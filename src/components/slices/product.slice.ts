@@ -33,7 +33,6 @@ export function fetchProducts(category: string){
           })
         } catch (error) {
             dispatch(get_products_error())
-            throw new Error("Internal server error - 500")
         }
       }
 }

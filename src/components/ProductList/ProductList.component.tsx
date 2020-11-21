@@ -16,7 +16,10 @@ type ProductListType = {
 
 const ProductListComponent: FC<ProductListType> = ({category}:any) => {
     const dispatch = useDispatch()
-    const {products} = useSelector(productListSelector)
+    const {products, get_products_error} = useSelector(productListSelector)
+
+    console.log("Get Products Error Reducer")
+    console.log(get_products_error)
 
     useEffect(()=>{
         dispatch(fetchProducts('male'))
