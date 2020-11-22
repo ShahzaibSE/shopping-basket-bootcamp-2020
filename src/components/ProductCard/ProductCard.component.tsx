@@ -4,10 +4,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from '@material-ui/core/Typography';
 import clsx from "clsx";
+import IconButton from "@material-ui/core/IconButton";
+import AddShoppingCart from "@material-ui/core/Icon";
 // Assets.
 import {productCardStyles} from "./ProductCard.styles";
 // Models.
@@ -46,6 +46,9 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
                     {/* <Button size="small" color="primary">
                      Add to Cart
                     </Button> */}
+                    {/* <IconButton>
+                        <AddShoppingCart />
+                    </IconButton> */}
                 </CardActions>
             </Card>
         </div>

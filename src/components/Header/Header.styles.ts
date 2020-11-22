@@ -1,5 +1,6 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {indigo} from "@material-ui/core/colors";
+import {grey} from "@material-ui/core/colors";
 
 export const headerStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -61,4 +62,17 @@ export const listStyles = makeStyles({
     fullList: {
       width: 'auto',
     },
-  });
+});
+
+export const dialogStyles = makeStyles((theme: Theme) =>
+      createStyles({
+        appBar: {
+          position: 'relative',
+          backgroundColor: grey[900]
+        },
+        title: {
+          marginLeft: theme.spacing(2),
+          flex: 1,
+        },
+      }),
+);

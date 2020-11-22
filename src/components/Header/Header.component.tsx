@@ -15,11 +15,17 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {ShoppingBasket} from "@material-ui/icons";
+import CloseIcon from '@material-ui/icons/Close';
+// Dialog and peer dependencies.
+import Dialog from '@material-ui/core/Dialog';
+import Slide from "@material-ui/core/Slide";
+import { TransitionProps } from '@material-ui/core/transitions';
 // Assets.
-import { headerStyles, swipeableDrawerStyles, listStyles } from "./Header.styles";
+import { headerStyles, swipeableDrawerStyles, listStyles, dialogStyles } from "./Header.styles";
 import ShoppingBasketLogo from "../../static/shopping-basket-logo.png";
 // Components.
 import ProductListComponent from "./../ProductList/ProductList.component";
+import CartComponent from "../Cart/Cart.component";
 // API.
 import {getProducts} from "./../api/index.api";
 // Selector.
@@ -28,6 +34,12 @@ import { useSelector } from 'react-redux';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
+const Transition = React.forwardRef(function Transition(
+  props: TransitionProps & { children?: React.ReactElement },
+  ref: React.Ref<unknown>,
+) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 const Header: FC<any> = () => {
     const classes = headerStyles();
@@ -41,6 +53,8 @@ const Header: FC<any> = () => {
     });
     const [categoryState, setCategoryState] = useState('male')
     let {cart_items} = useSelector(cartItemsSelector)
+    const dialog_classes = dialogStyles();
+    const [isDialogOpen, setDialogOpen] = useState(false)
 
     const toggleDrawer = (anchor: Anchor, open: boolean) => (
         event: React.KeyboardEvent | React.MouseEvent,
@@ -72,6 +86,11 @@ const Header: FC<any> = () => {
         )
       }
     }
+
+    // Dialog handler.
+    const handleClose = () => {
+      setDialogOpen(false);
+    };
 
     const list = (anchor: Anchor) => (
         <div
@@ -148,6 +167,21 @@ const Header: FC<any> = () => {
           <Grid item sm={12} md={12} lg={12}>
             {load_category()}
           </Grid>
+          {/* <Grid item sm={12} md={12} lg={12}>
+            <Dialog fullScreen open={isDialogOpen} onClose={handleClose} TransitionComponent={Transition}>
+              <AppBar className={dialog_classes.appBar}>
+                <Toolbar>
+                  <IconButton edge="start" color="inherit" onClick={handleClose} aria-label="close">
+                    <CloseIcon />
+                  </IconButton>
+                  <Typography variant="h6" className={dialog_classes.title}>
+                    Your Cart
+                  </Typography>
+                </Toolbar>
+              </AppBar>
+              <CartComponent />
+            </Dialog>
+          </Grid> */}
         </Grid>
     )
 }
