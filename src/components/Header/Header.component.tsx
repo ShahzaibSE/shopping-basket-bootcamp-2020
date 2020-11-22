@@ -92,6 +92,10 @@ const Header: FC<any> = () => {
       setDialogOpen(false);
     };
 
+    const openDialog = () => {
+      setDialogOpen(true)
+    }
+
     const list = (anchor: Anchor) => (
         <div
           className={listClasses.list}
@@ -142,7 +146,7 @@ const Header: FC<any> = () => {
                           <Typography variant="h6" className={classes.title}>
                               <strong style={{fontWeight:"bolder"}}>ｃｏｓｍｏｓ Ｓｔｏｒｅ</strong>
                           </Typography>
-                          <IconButton>
+                          <IconButton onClick={openDialog}>
                               <Badge color="secondary" overlap="circle" badgeContent={cart_items.length}>
                                   <ShoppingCartRounded style={{color:"white", fontSize:30}}/>
                               </Badge>
@@ -167,7 +171,7 @@ const Header: FC<any> = () => {
           <Grid item sm={12} md={12} lg={12}>
             {load_category()}
           </Grid>
-          {/* <Grid item sm={12} md={12} lg={12}>
+          <Grid item sm={12} md={12} lg={12}>
             <Dialog fullScreen open={isDialogOpen} onClose={handleClose} TransitionComponent={Transition}>
               <AppBar className={dialog_classes.appBar}>
                 <Toolbar>
@@ -179,9 +183,10 @@ const Header: FC<any> = () => {
                   </Typography>
                 </Toolbar>
               </AppBar>
+
               <CartComponent />
             </Dialog>
-          </Grid> */}
+          </Grid>
         </Grid>
     )
 }
