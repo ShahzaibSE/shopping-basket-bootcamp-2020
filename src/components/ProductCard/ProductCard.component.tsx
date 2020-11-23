@@ -8,10 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
 import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
+import {useDispatch} from "react-redux";
 // Assets.
 import {productCardStyles} from "./ProductCard.styles";
 // Models.
 import {ProductItem} from "../../models/item.model";
+// Redux Slice.
+import {add_cart_items} from "./../slices/cart.slice"; 
 
 type Product = {
     product: ProductItem
@@ -19,8 +22,14 @@ type Product = {
 
 const ProductCardComponent:FC<Product> = ({product}: any) => {
     const classes = productCardStyles()
+    const dispatch = useDispatch()
     console.log("<ProductCardComponent/> - Product")
     console.log(product)
+
+    const add_to_cart_fn = () => {
+        dispatch(add_cart_items(product))
+    }
+
     return (
         <div>
             <Card className={classes.root}>
@@ -46,7 +55,7 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
                     {/* <Button size="small" color="primary">
                      Add to Cart
                     </Button> */}
-                    <IconButton>
+                    <IconButton onClick={add_to_cart_fn}>
                         <AddShoppingCart />
                     </IconButton>
                 </CardActions>
