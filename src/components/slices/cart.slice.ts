@@ -3,7 +3,8 @@ import {createSlice, Dispatch} from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
     name:"cart",
     initialState:{
-        cart_items: []
+        cart_items: [],
+        isCheckout: false
     },
     reducers: {
        get_cart_items(state:any, action:any) {
@@ -14,6 +15,10 @@ export const cartSlice = createSlice({
        },
        remove_cart_items: (state:any, action:any)=>{
         state.cart_items.filter( (cart_item:any) => cart_item.id !== action.payload)
+       },
+       cart_checkout: (state:any) => {
+           state.cart_items = []
+           state.isCheckout = true
        }
     //    add_cart_items: (state, action) => {
     //     return state.cart_items.map((cart_item:any) => {
@@ -43,7 +48,7 @@ export const cartSlice = createSlice({
 })
 
 // Actions.
-export const {get_cart_items, add_cart_items, remove_cart_items} = cartSlice.actions
+export const {get_cart_items, add_cart_items, remove_cart_items, cart_checkout} = cartSlice.actions
 
 // Selector.
 export const cartItemsSelector = (state:any) => (state.cart_items)

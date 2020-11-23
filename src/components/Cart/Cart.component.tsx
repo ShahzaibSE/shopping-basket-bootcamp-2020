@@ -17,8 +17,8 @@ import Button from "@material-ui/core/Button";
 // Assets.
 import {tableStyles} from "./Cart.styles";
 // Reducer selector.
-import {cartItemsSelector} from "./../slices/cart.slice";
-import {useSelector} from "react-redux";
+import {cartItemsSelector, cart_checkout} from "./../slices/cart.slice";
+import {useSelector, useDispatch} from "react-redux";
 
 
 const columns = [
@@ -35,6 +35,7 @@ const columns = [
 
 const CartComponent = () => {
     const classes = tableStyles();
+    const dispatch = useDispatch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     let {cart_items} = useSelector(cartItemsSelector)
@@ -63,6 +64,7 @@ const CartComponent = () => {
     //
     const checking_out = () => {
         setCartProducts([])
+        dispatch(cart_checkout())
         // checkout_cart()
     }
     //
@@ -90,9 +92,9 @@ const CartComponent = () => {
                             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row:any) => {
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                                    <TableCell align="left"><img width={200} height={200} src={row.img} alt={row.name}/></TableCell>
+                                    <TableCell align="left"><img width={200} height={200} src={row.imageUrl} alt={row.title}/></TableCell>
                                     <TableCell component="th" scope="row" align="left">
-                                        <span style={{fontWeight:"bold"}}>{row.name}</span>
+                                        <span style={{fontWeight:"bold"}}>{row.title}</span>
                                     </TableCell>
                                     <TableCell align="left"><span style={{fontWeight:"bold"}}>${row.price}</span></TableCell>
                                 </TableRow>
