@@ -7,7 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import clsx from "clsx";
 import IconButton from "@material-ui/core/IconButton";
-import AddShoppingCart from "@material-ui/core/Icon";
+import AddShoppingCart from '@material-ui/icons/AddShoppingCart';
 // Assets.
 import {productCardStyles} from "./ProductCard.styles";
 // Models.
@@ -42,13 +42,13 @@ const ProductCardComponent:FC<Product> = ({product}: any) => {
                         </Typography>
                     </CardContent>
                 </CardActionArea>
-                <CardActions>
+                <CardActions className={classes.action_container}>
                     {/* <Button size="small" color="primary">
                      Add to Cart
                     </Button> */}
-                    {/* <IconButton>
+                    <IconButton>
                         <AddShoppingCart />
-                    </IconButton> */}
+                    </IconButton>
                 </CardActions>
             </Card>
         </div>
