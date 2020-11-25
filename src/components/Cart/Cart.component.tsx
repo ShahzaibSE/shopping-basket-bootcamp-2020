@@ -14,6 +14,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Paper from '@material-ui/core/Paper';
 import {Grid} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import { Delete } from "@material-ui/icons";
 // Assets.
 import {tableStyles} from "./Cart.styles";
 // Reducer selector.
@@ -30,6 +32,9 @@ const columns = [
       minWidth: 30,
       align: "left",
       format: (value:any) => value.toLocaleString('en-US'),
+    },
+    {
+        id:"delete_btn", label:"", minWidth: 30
     }
   ];
 
@@ -92,11 +97,16 @@ const CartComponent = () => {
                             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row:any) => {
                             return (
                                 <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                                    <TableCell align="left"><img width={200} height={200} src={row.imageUrl} alt={row.title}/></TableCell>
+                                    <TableCell align="left"><img width={100} height={100} src={row.imageUrl} alt={row.title}/></TableCell>
                                     <TableCell component="th" scope="row" align="left">
                                         <span style={{fontWeight:"bold"}}>{row.title}</span>
                                     </TableCell>
                                     <TableCell align="left"><span style={{fontWeight:"bold"}}>${row.price}</span></TableCell>
+                                    <TableCell align="left">
+                                        <IconButton>
+                                            <Delete/>
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             );
                             })}

@@ -68,7 +68,7 @@ export const dialogStyles = makeStyles((theme: Theme) =>
       createStyles({
         appBar: {
           position: 'relative',
-          backgroundColor: grey[900]
+        //   backgroundColor: grey[900]
         },
         title: {
           marginLeft: theme.spacing(2),
