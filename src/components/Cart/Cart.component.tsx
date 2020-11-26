@@ -16,12 +16,17 @@ import {Grid} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import { Delete } from "@material-ui/icons";
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 // Assets.
-import {tableStyles} from "./Cart.styles";
+import {tableStyles, snackbarStyles} from "./Cart.styles";
 // Reducer selector.
 import {cartItemsSelector, cart_checkout, remove_cart_items} from "./../slices/cart.slice";
 import {useSelector, useDispatch} from "react-redux";
 
+function Alert(props: AlertProps) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const columns = [
     { id: "image", label: "     ", minWidth: 60},
@@ -40,11 +45,14 @@ const columns = [
 
 const CartComponent = () => {
     const classes = tableStyles();
+    const snackbar_classes = snackbarStyles()
     const dispatch = useDispatch();
     const [page, setPage] = useState(0);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     let {cart_items} = useSelector(cartItemsSelector)
     let [rows, setCartProducts] = useState(cart_items)
+    // Snackbar state.
+    const [open, setOpen] = React.useState(false);
     //
     let items = cart_items.map((item:any) => (item))
     let prices = cart_items.map((item:any) => (item.price))
@@ -69,8 +77,22 @@ const CartComponent = () => {
         setCartProducts(cart_items.filter((item:any)=>(item.id !== product.id)))
     }
     //
+    // Snackbar message on checkout
+    const handleClick = () => {
+        setOpen(true);
+    };
+    
+    const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+    //
     const checking_out = () => {
         setCartProducts([])
+        handleClick()
         dispatch(cart_checkout())
         // checkout_cart()
     }
@@ -160,6 +182,15 @@ const CartComponent = () => {
                 </Button>
                 </CardActions>
             </Card>
+            </Grid>
+            <Grid item sm={12} md={12} lg={12}>
+               <div className={snackbar_classes.root}> 
+                    <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                        <Alert onClose={handleClose} severity="success">
+                        Checked out successfully!
+                        </Alert>
+                    </Snackbar>
+                </div>
             </Grid>
         </Grid>
     )
