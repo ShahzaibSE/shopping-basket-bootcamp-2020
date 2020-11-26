@@ -19,7 +19,7 @@ import { Delete } from "@material-ui/icons";
 // Assets.
 import {tableStyles} from "./Cart.styles";
 // Reducer selector.
-import {cartItemsSelector, cart_checkout} from "./../slices/cart.slice";
+import {cartItemsSelector, cart_checkout, remove_cart_items} from "./../slices/cart.slice";
 import {useSelector, useDispatch} from "react-redux";
 
 
@@ -62,9 +62,11 @@ const CartComponent = () => {
         setPage(0);
     };
     //
-    const delete_product = (product_id:any) => {
+    const delete_cart_item = (product:any) => {
         console.log("Product in Cart.")
-        // delete_cart_product(product_id)
+        console.log(product)
+        dispatch(remove_cart_items(product))
+        setCartProducts(cart_items.filter((item:any)=>(item.id !== product.id)))
     }
     //
     const checking_out = () => {
@@ -103,7 +105,7 @@ const CartComponent = () => {
                                     </TableCell>
                                     <TableCell align="left"><span style={{fontWeight:"bold"}}>${row.price}</span></TableCell>
                                     <TableCell align="left">
-                                        <IconButton>
+                                        <IconButton onClick={()=>{delete_cart_item(row)}}>
                                             <Delete/>
                                         </IconButton>
                                     </TableCell>

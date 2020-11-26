@@ -179,7 +179,7 @@ const Header: FC<any> = () => {
                     <CloseIcon />
                   </IconButton>
                   <Typography variant="h6" className={dialog_classes.title}>
-                    Your Cart
+                    <strong>Your Cart</strong>
                   </Typography>
                 </Toolbar>
               </AppBar>

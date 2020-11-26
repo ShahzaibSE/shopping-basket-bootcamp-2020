@@ -14,7 +14,9 @@ export const cartSlice = createSlice({
            state.cart_items = [action.payload, ...state.cart_items]
        },
        remove_cart_items: (state:any, action:any)=>{
-        state.cart_items.filter( (cart_item:any) => cart_item.id !== action.payload)
+        console.log("Action Payload - Cart Item ID")
+        console.log(action.payload)
+        state.cart_items = state.cart_items.filter( (cart_item:any) => cart_item.id !== action.payload.id)
        },
        cart_checkout: (state:any) => {
            state.cart_items = []

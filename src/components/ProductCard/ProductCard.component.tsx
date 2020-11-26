@@ -23,8 +23,6 @@ type Product = {
 const ProductCardComponent:FC<Product> = ({product}: any) => {
     const classes = productCardStyles()
     const dispatch = useDispatch()
-    console.log("<ProductCardComponent/> - Product")
-    console.log(product)
 
     const add_to_cart_fn = () => {
         dispatch(add_cart_items(product))
